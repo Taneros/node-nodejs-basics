@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-
 import {fileURLToPath} from 'url';
 
 const fileName=fileURLToPath(import.meta.url);
@@ -19,7 +18,6 @@ const create=async () => {
     })
 
     console.log('File created successfully!')
-
 };
 
 await create();
