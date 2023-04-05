@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import {fileURLToPath} from 'url'
 
-const fileName = fileURLToPath(import.meta.url)
+const scriptPath = fileURLToPath(import.meta.url)
 
-const dirName = path.dirname(fileName)
+const dirName = path.dirname(scriptPath)
 
 const pathToOriginDir = path.join(dirName,'files')
 
@@ -16,8 +16,9 @@ const copy = async () => {
             fs.mkdirSync(pathToNewDir)
 
             fs.readdirSync(pathToOriginDir).forEach((file) => {
-                console.log(file);
-                fs.copyFileSync(path.join(pathToOriginDir, file), path.join(pathToNewDir, file))
+                const oldFilePath = path.join(pathToOriginDir, file)
+                const newFilePath = path.join(pathToNewDir, file)
+                fs.copyFileSync(oldFilePath, newFilePath)
             })
 
         } else {
