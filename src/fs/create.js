@@ -12,16 +12,13 @@ const pathToFile=path.join(__dirname,'files','fresh.txt')
 const content='I am fresh and young'
 
 const create=async () => {
-    if(fs.existsSync(pathToFile)) {throw new rror('FS operation failed')}
+    if(fs.existsSync(pathToFile)) {throw new Error('FS operation failed')}
 
-    try {
-        fs.writeFileSync(path.join(__dirname,'files','fresh.txt'),content)
+    fs.writeFile(pathToFile, content, 'utf-8', (error) => {
+        if(error) {console.error(error)}
+    })
 
-    } catch(error) {
-        console.error(error);
-
-    }
-
+    console.log('File created successfully!')
 
 };
 
