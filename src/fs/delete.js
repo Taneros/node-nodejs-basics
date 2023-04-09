@@ -13,9 +13,11 @@ const remove=async () => {
 
     try {
         fs.rmSync(pathToDeleteFile)
+
         console.log('\nDeleted successfully!')
+
     } catch(error) {
-        throw new Error('FS operation failed')
+        throw new Error('FS operation failed\n')
     }
 };
 

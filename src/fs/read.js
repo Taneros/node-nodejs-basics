@@ -16,7 +16,7 @@ const read=async () => {
 
         console.log('\nRead file successfully!')
     } catch (error) {
-        throw new Error('FS operation failed')
+        throw new Error('FS operation failed\n')
     }
 };
 

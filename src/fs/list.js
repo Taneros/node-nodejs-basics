@@ -15,7 +15,7 @@ const list=async () => {
 
         console.log(filesList)
     } catch (error) {
-        throw new Error('FS operation failed')
+        throw new Error('FS operation failed\n')
     }
 };
 

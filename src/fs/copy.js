@@ -19,15 +19,15 @@ const copy=async () => {
         fs.mkdirSync(pathToNewDir)
 
         filesToCopy.forEach((file) => {
-            const oldFilePath=path.join(pathToOriginDir,file)
-            const newFilePath=path.join(pathToNewDir,file)
-            fs.copyFileSync(oldFilePath,newFilePath)
+            const oldFilePath=path.join(pathToOriginDir, file)
+            const newFilePath=path.join(pathToNewDir, file)
+            fs.copyFileSync(oldFilePath, newFilePath)
         })
         
-        console.log('\Copied successfully!')
+        console.log('\nCopied successfully!')
 
     } catch(error) {
-        throw new Error('FS operation failed')
+        throw new Error('FS operation failed\n')
     }
 
 
