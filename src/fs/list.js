@@ -6,17 +6,16 @@ const scriptPath=fileURLToPath(import.meta.url)
 
 const dirName=path.dirname(scriptPath)
 
-const pathToOriginDir=path.join(dirName,'files')
+const pathToOriginDir=path.join(dirName,'files1')
 
 
 const list=async () => {
-    try {
-        const filesList=fs.readdirSync(pathToOriginDir)
 
-        console.log(filesList)
-    } catch (error) {
-        throw new Error('FS operation failed\n')
-    }
+        fs.readdir(pathToOriginDir,(error ,filesList) => {
+            if(error) throw new Error('FS operation failed\n')
+            console.log(filesList)
+        })
+
 };
 
 await list();

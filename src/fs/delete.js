@@ -11,14 +11,17 @@ const pathToDeleteFile=path.join(dirName,'files','fileToRemove.txt')
 
 const remove=async () => {
 
-    try {
-        fs.rmSync(pathToDeleteFile)
+    fs.stat(pathToDeleteFile,(err,stat) => {
+        if(err) throw new Error('FS operation failed\n')
+        
+        fs.rm(pathToDeleteFile, (err) => {
+            
+            if(err) throw new Error('FS operation failed\n')
 
-        console.log('\nDeleted successfully!')
-
-    } catch(error) {
-        throw new Error('FS operation failed\n')
-    }
+            console.log('\nDeleted successfully!')
+            
+        })
+    })
 };
 
 await remove();

@@ -11,14 +11,16 @@ const pathToWrongFile=path.join(dirName,'files', 'wrongFilename.txt')
 const pathToCorrectFile=path.join(dirName,'files','properFilename.md')
 
 const rename=async () => {
-    if(fs.existsSync(pathToWrongFile) &&! fs.existsSync(pathToCorrectFile)) {
+    if(fs.existsSync(pathToWrongFile) && !fs.existsSync(pathToCorrectFile)) {
         
-        fs.renameSync(pathToWrongFile, pathToCorrectFile)
+        fs.rename(pathToWrongFile,pathToCorrectFile,(err) => {
+            if(err)  throw new Error ('FS operation failed')
+            console.log('\nRenamed successfully!')
+        })
         
-        console.log('\nRenamed successfully!')
 
     } else {
-        throw new Error ('FS operation failed')
+        throw new Error ('FS operation failed\n')
     }
 };
 
