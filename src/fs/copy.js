@@ -6,7 +6,7 @@ const scriptPath=fileURLToPath(import.meta.url)
 
 const dirName=path.dirname(scriptPath)
 
-const pathToOriginDir=path.join(dirName,'files1')
+const pathToOriginDir=path.join(dirName,'files')
 
 const pathToNewDir=path.join(dirName,'files_copy')
 
